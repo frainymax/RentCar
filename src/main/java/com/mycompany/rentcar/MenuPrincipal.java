@@ -7,6 +7,7 @@ package com.mycompany.rentcar;
 /**
  *
  * la pampara de la pieza
+ yo soy la pieza
  */
 public class MenuPrincipal {
     
