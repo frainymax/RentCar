@@ -6,7 +6,7 @@ package com.mycompany.rentcar;
 
 /**
  *
- * @author User
+ * hi
  */
 public class RentCar {
 
