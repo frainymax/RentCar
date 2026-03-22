@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.rentcar;
+
 import java.io.File; // reconoce la palabra File, permite referenciar archivos del sistema
 import java.io.FileNotFoundException; // Sin esto, el catch no funcionaría, importa la excepción que se lanza cuando el archivo no existe
 import java.util.Scanner;
@@ -13,7 +14,7 @@ import javax.swing.*; // Importa todo lo que está dentro de javax.swing, incluy
  * @author isvaa hi
  */
 public class Login extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
     /**
@@ -102,41 +103,56 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
-    String usuario = TextUsuario.getText().trim(); // .trim() elimina espacios en blanco al inicio y al final.
-    String contrasena = new String(TextContraseña.getPassword()).trim(); // getPassword() porque se esta usando un Password Field
-    boolean encontrado = false; //  Indica si el usuario fue encontrado en el archivo.
+        String usuario = TextUsuario.getText().trim(); // .trim() elimina espacios en blanco al inicio y al final.
+        String contrasena = new String(TextContraseña.getPassword()).trim(); // getPassword() porque se esta usando un Password Field
+        boolean encontrado = false; //  Indica si el usuario fue encontrado en el archivo.
+        if (usuario.isEmpty() || contrasena.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese usuario y contraseña");
+            return;
+        }
 
-    try { // Inicia el bloque protegido. Si algo falla adentro, el programa no se rompe sino que va al catch.
-        File archivo = new File("Archivos/usuarios.txt");
-        Scanner sc = new Scanner(archivo);
+        try { // Inicia el bloque protegido. Si algo falla adentro, el programa no se rompe sino que va al catch.
+            File archivo = new File("Archivos/usuarios.txt");
+            Scanner sc = new Scanner(archivo);
 
-        sc.nextLine(); // Salta el encabezado
+            sc.nextLine(); // Salta el encabezado
 
-        while (sc.hasNextLine()) { // El método hasNextLine() devuelve verdadero si hay otra línea de texto disponible en el escáner. Repite el ciclo mientras haya más líneas en el archivo. Cada iteración procesa una fila.
-            String linea = sc.nextLine(); // Lee la línea actual completa. Por ejemplo: 1,admin,123.
-            String[] partes = linea.split(","); // Divide la línea en un arreglo usando la coma como separador.
+            while (sc.hasNextLine()) { // El método hasNextLine() devuelve verdadero si hay otra línea de texto disponible en el escáner. Repite el ciclo mientras haya más líneas en el archivo. Cada iteración procesa una fila.
+                String linea = sc.nextLine(); // Lee la línea actual completa. Por ejemplo: 1,admin,123.
+                String[] partes = linea.split(","); // Divide la línea en un arreglo usando la coma como separador.
 
-            if (partes.length == 3) { // Verifica que la línea tenga exactamente 3 partes. 0 = id, 1 = user, 2 = pass
-                String user = partes[1].trim(); // .trim() elimina espacios que puedan sobrar.
-                String pass = partes[2].trim();
+                if (partes.length >= 6) {
 
-                if (user.equals(usuario) && pass.equals(contrasena)) { // Se usa .equals() y no == porque con String el == compara posiciones de memoria, no el contenido.
-                    encontrado = true; // Si coinciden, cambia encontrado a true
-                    break;
+                    String user = partes[0].trim();
+                    String pass = partes[1].trim();
+                    int nivel = Integer.parseInt(partes[2].trim());
+                    String nombre = partes[3].trim();
+
+                    if (user.equals(usuario) && pass.equals(contrasena)) {
+                        encontrado = true;
+
+                        JOptionPane.showMessageDialog(this, "Bienvenido " + nombre);
+
+                        if (nivel == 0) {
+                            new MenuAdmin(nombre).setVisible(true);
+                            this.dispose();
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Acceso limitado");
+                        }
+
+                        break;
+                    }
                 }
             }
+            sc.close(); // Cierra el archivo una vez que terminó de leerlo. Siempre hay que cerrarlo para liberar recursos.
+
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "Archivo no encontrado.");
         }
-        sc.close(); // Cierra el archivo una vez que terminó de leerlo. Siempre hay que cerrarlo para liberar recursos.
 
-    } catch (FileNotFoundException e) {
-        JOptionPane.showMessageDialog(this, "Archivo no encontrado.");
-    }
-
-    if (encontrado) {
-        JOptionPane.showMessageDialog(this, "Bienvenido, " + usuario + "!");
-    } else {
-        JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.");
-    }
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.");
+        }
     }//GEN-LAST:event_BtnIngresarActionPerformed
 
     /**
