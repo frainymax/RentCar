@@ -10,7 +10,7 @@ import javax.swing.*; // Importa todo lo que está dentro de javax.swing, incluy
 
 /**
  *
- * @author isvaa
+ * @author isvaa hi
  */
 public class Login extends javax.swing.JFrame {
     
