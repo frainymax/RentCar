@@ -1,3 +1,6 @@
-id,usuario,contrasena
-1,admin,123
-2,guest,456
+login,pass,nivel,nombre,apellido,email
+frailin,123,0,Frailin,Almonte,frailin@gmail.com
+isaac,123,0,Isaac,Utesa,isaac@gmail.com
+guest,456,1,Guest,User,guest@gmail.com
+petronilo,321,0,Petronilo,Sinforoso,petro@gmail.com
+sara,1234,1,Sara,Cevada,sara@gmail.com
