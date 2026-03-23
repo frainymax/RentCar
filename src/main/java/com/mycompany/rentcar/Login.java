@@ -58,15 +58,25 @@ public class Login extends javax.swing.JFrame {
         BtnIngresar.setText("Ingresar");
         BtnIngresar.addActionListener(this::BtnIngresarActionPerformed);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("D:\\UTESA\\Ingenieria en Ciencias Computacionales\\KDA RentCar\\RentCar\\imagenes\\KDA RentCar (1).gif")); // NOI18N
+       jLabel4.setIcon(new javax.swing.ImageIcon(
+    getClass().getResource("/com/mycompany/rentcar/imagenes/KDA RentCar (1).gif")
+));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\UTESA\\Ingenieria en Ciencias Computacionales\\KDA RentCar\\RentCar\\imagenes\\Neon1.png")); // NOI18N
+jLabel3.setIcon(new javax.swing.ImageIcon(
+    getClass().getResource("/com/mycompany/rentcar/imagenes/Neon1.png")
+));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("D:\\UTESA\\Ingenieria en Ciencias Computacionales\\KDA RentCar\\RentCar\\imagenes\\Neon0.png")); // NOI18N
+jLabel5.setIcon(new javax.swing.ImageIcon(
+    getClass().getResource("/com/mycompany/rentcar/imagenes/Neon0.png")
+));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\UTESA\\Ingenieria en Ciencias Computacionales\\KDA RentCar\\RentCar\\imagenes\\Neon2.png")); // NOI18N
+jLabel6.setIcon(new javax.swing.ImageIcon(
+    getClass().getResource("/com/mycompany/rentcar/imagenes/Neon2.png")
+));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\UTESA\\Ingenieria en Ciencias Computacionales\\KDA RentCar\\RentCar\\imagenes\\61e962376d9150d9cddb4e62ff194adc2207d9cee09cc-h1lHVT_fw658 (1).png")); // NOI18N
+jLabel7.setIcon(new javax.swing.ImageIcon(
+    getClass().getResource("/com/mycompany/rentcar/imagenes/61e962376d9150d9cddb4e62ff194adc2207d9cee09cc-h1lHVT_fw658 (1).png")
+));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
