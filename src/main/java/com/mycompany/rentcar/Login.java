@@ -171,14 +171,18 @@ public class Login extends javax.swing.JFrame {
 
                         JOptionPane.showMessageDialog(this, "Bienvenido " + nombre);
 
-                        if (nivel == 0) {
-                            new Menu(nombre).setVisible(true);
-                            this.dispose();
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Acceso limitado");
-                        }
+                        if (user.equals(usuario) && pass.equals(contrasena)) {
+                            encontrado = true;
+                            JOptionPane.showMessageDialog(this, "Bienvenido " + nombre);
 
-                        break;
+                            // REQUISITO iv: Llamamos al menú pasando el nombre Y el nivel
+                            // Ya no bloqueamos aquí con un mensaje, dejamos que el Menú se abra
+                            // pero él mismo sabrá si desactivar el botón o no.
+                            new Menu(nombre, nivel).setVisible(true);
+                            this.dispose();
+
+                            break;
+                        }
                     }
                 }
             }

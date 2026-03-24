@@ -49,14 +49,12 @@
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="BtnRegresar" pref="96" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="Label_Nivel" max="32767" attributes="0"/>
-                          <Component id="Label_Email" max="32767" attributes="0"/>
-                          <Component id="Label_Apellido" max="32767" attributes="0"/>
-                          <Component id="Label_Nombre" max="32767" attributes="0"/>
-                          <Component id="Label_Usuario" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Label_Contraseña" alignment="0" pref="96" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="Label_Nivel" alignment="1" max="32767" attributes="0"/>
+                      <Component id="Label_Email" alignment="1" max="32767" attributes="0"/>
+                      <Component id="Label_Apellido" alignment="1" max="32767" attributes="0"/>
+                      <Component id="Label_Nombre" alignment="1" max="32767" attributes="0"/>
+                      <Component id="Label_Usuario" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Label_Contraseña" alignment="0" pref="96" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="18" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">

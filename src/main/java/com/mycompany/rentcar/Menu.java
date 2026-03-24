@@ -10,6 +10,7 @@ package com.mycompany.rentcar;
  */
 public class Menu extends javax.swing.JFrame {
     String nombreUsuario;
+    int nivelUsuario;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Menu.class.getName());
 
@@ -21,10 +22,20 @@ public class Menu extends javax.swing.JFrame {
         
     }
     
-        public Menu(String nombre) {
+        //  constructor para recibir AMBOS parámetros
+    public Menu(String nombre, int nivel) {
         initComponents();
         this.nombreUsuario = nombre;
+        this.nivelUsuario = nivel; // Guardamos el nivel que viene del login
+        
+        // REQUISITO iv: Si el nivel es 1 (Usuario normal), bloqueamos el botón
+        if (this.nivelUsuario == 1) {
+            Btn_RegistrarUsuario.setEnabled(false); // Se pone gris y no se puede clicar
+            Btn_RegistrarUsuario.setToolTipText("Solo administradores pueden registrar");
+        }
     }
+    
+    // ... resto del código
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,18 +69,18 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(175, 175, 175)
                         .addComponent(Label_Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(130, 130, 130)
                         .addComponent(Btn_RegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(Label_Menu)
-                .addGap(34, 34, 34)
+                .addGap(33, 33, 33)
                 .addComponent(Btn_RegistrarUsuario)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -113,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Menu().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Menu("Invitado", 1).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

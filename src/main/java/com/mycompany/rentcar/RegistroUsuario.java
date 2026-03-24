@@ -194,55 +194,63 @@ public class RegistroUsuario extends javax.swing.JFrame {
         int nivel = comboNivel.getSelectedIndex(); // 0 admin, 1 user
 
         if (login.isEmpty() || pass.isEmpty() || nombre.isEmpty() || apellido.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Campos obligatorios vacíos");
-            return;
-        }
+        JOptionPane.showMessageDialog(this, "Campos obligatorios vacíos (*)");
+        return;
+    }
 
         try {
+        java.io.File archivo = new java.io.File("Archivos/usuarios.txt");
+        java.util.List<String> lineas = new java.util.ArrayList<>();
+        boolean existe = false;
+        String nuevaLinea = login + "," + pass + "," + nivel + "," + nombre + "," + apellido + "," + email;
 
-            boolean existe = false;
-
-            java.io.File archivo = new java.io.File("Archivos/usuarios.txt");
+        // 2. Leer el archivo completo para buscar si existe o para reconstruirlo
+        if (archivo.exists()) {
             java.util.Scanner sc = new java.util.Scanner(archivo);
-
-            sc.nextLine(); // saltar encabezado
-
             while (sc.hasNextLine()) {
-                String linea = sc.nextLine();
-                String[] partes = linea.split(",");
-
-                if (partes.length >= 6) {
-                    if (partes[0].trim().equals(login)) {
-                        existe = true;
-                        break;
-                    }
+                String lineaActual = sc.nextLine();
+                String[] partes = lineaActual.split(",");
+                
+                // Si el login coincide, reemplazamos esa línea (MODIFICAR)
+                if (partes.length > 0 && partes[0].trim().equals(login)) {
+                    lineas.add(nuevaLinea);
+                    existe = true;
+                } else {
+                    lineas.add(lineaActual);
                 }
             }
-
             sc.close();
-
-            if (existe) {
-                JOptionPane.showMessageDialog(this, "Ese usuario ya existe (modo modificar)");
-            } else {
-                java.io.FileWriter fw = new java.io.FileWriter("Archivos/usuarios.txt", true);
-
-                fw.write(login + "," + pass + "," + nivel + "," + nombre + "," + apellido + "," + email + System.lineSeparator());
-
-                fw.close();
-
-                JOptionPane.showMessageDialog(this, "Usuario guardado correctamente");
-            }
-
-            // limpiar campos
-            txtLogin.setText("");
-            txtPass.setText("");
-            txtNombre.setText("");
-            txtApellido.setText("");
-            txtEmail.setText("");
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al guardar");
         }
+
+        // 3. REQUISITO ii y iii: Si NO existe, lo agregamos a la lista (CREAR)
+        if (!existe) {
+            lineas.add(nuevaLinea);
+        }
+
+        // 4. Sobreescribir el archivo con la lista actualizada (sea crear o modificar)
+        java.io.FileWriter fw = new java.io.FileWriter(archivo, false); // 'false' para sobreescribir
+        for (String l : lineas) {
+            fw.write(l + System.lineSeparator());
+        }
+        fw.close();
+
+        if (existe) {
+            JOptionPane.showMessageDialog(this, "Usuario actualizado correctamente (Modificado)");
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario creado correctamente");
+        }
+
+        // Limpiar campos
+        txtLogin.setText("");
+        txtPass.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtEmail.setText("");
+
+    }
+       catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al procesar el archivo: " + e.getMessage());
+    }
 
     
     
