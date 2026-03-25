@@ -1,5 +1,5 @@
 login,pass,nivel,nombre,apellido,email
-frailin,1234,0,Frailin,Almonte,frailin@gmail.com
+frailin,1234Fr,0,Frailin,Almonte,frailin@gmail.com
 isaac,123,0,Isaac,Utesa,isaac@gmail.com
 guest,456,1,Guest,User,guest@gmail.com
 petronilo,321,0,Petronilo,Sinforoso,petro@gmail.com
