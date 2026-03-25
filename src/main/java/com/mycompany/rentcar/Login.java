@@ -6,6 +6,7 @@ package com.mycompany.rentcar;
 
 import java.io.File; // reconoce la palabra File, permite referenciar archivos del sistema
 import java.io.FileNotFoundException; // Sin esto, el catch no funcionaría, importa la excepción que se lanza cuando el archivo no existe
+import java.lang.classfile.Label;
 import java.util.Scanner;
 import javax.swing.*; // Importa todo lo que está dentro de javax.swing, incluyendo JOptionPane, JTextField, JPasswordField, JFrame
 
@@ -21,7 +22,27 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
-        initComponents();
+       initComponents(); 
+
+    Label_Video.setIcon(new javax.swing.ImageIcon(
+        getClass().getResource("/com/mycompany/rentcar/imagenes/kda.gif")
+    ));
+    
+      Label_Azul.setIcon(new javax.swing.ImageIcon(
+        getClass().getResource("/com/mycompany/rentcar/imagenes/Azul_Arriba.png")
+    ));
+
+    Label_RosadoAbajo.setIcon(new javax.swing.ImageIcon(
+        getClass().getResource("/com/mycompany/rentcar/imagenes/Rosa_Abajo.png")
+    ));
+
+    Label_RosaArriba.setIcon(new javax.swing.ImageIcon(
+        getClass().getResource("/com/mycompany/rentcar/imagenes/splash_rosa.png")
+    ));
+
+    Label_Logo.setIcon(new javax.swing.ImageIcon(
+        getClass().getResource("/com/mycompany/rentcar/imagenes/Logo.png")
+    ));
     }
 
     /**
@@ -59,16 +80,6 @@ public class Login extends javax.swing.JFrame {
         BtnIngresar.setText("Ingresar");
         BtnIngresar.addActionListener(this::BtnIngresarActionPerformed);
 
-        Label_Video.setIcon(new javax.swing.ImageIcon("D:\\UTESA\\Ingenieria en Ciencias Computacionales\\KDA RentCar\\RentCar\\imagenes\\KDA RentCar Video.gif")); // NOI18N
-
-        Label_Azul.setIcon(new javax.swing.ImageIcon("D:\\UTESA\\Ingenieria en Ciencias Computacionales\\KDA RentCar\\RentCar\\imagenes\\Azul_Arriba.png")); // NOI18N
-
-        Label_RosadoAbajo.setIcon(new javax.swing.ImageIcon("D:\\UTESA\\Ingenieria en Ciencias Computacionales\\KDA RentCar\\RentCar\\imagenes\\Rosa_Abajo.png")); // NOI18N
-
-        Label_RosaArriba.setIcon(new javax.swing.ImageIcon("D:\\UTESA\\Ingenieria en Ciencias Computacionales\\KDA RentCar\\RentCar\\imagenes\\Slpash Rosa.png")); // NOI18N
-
-        Label_Logo.setIcon(new javax.swing.ImageIcon("D:\\UTESA\\Ingenieria en Ciencias Computacionales\\KDA RentCar\\RentCar\\imagenes\\Logo.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -98,7 +109,7 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Label_Azul)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(624, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
