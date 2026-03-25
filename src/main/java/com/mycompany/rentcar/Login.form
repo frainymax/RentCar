@@ -140,14 +140,39 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Label_Video">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="D:\UTESA\Ingenieria en Ciencias Computacionales\KDA RentCar\RentCar\imagenes\KDA RentCar Video.gif"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Label_Azul">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="D:\UTESA\Ingenieria en Ciencias Computacionales\KDA RentCar\RentCar\imagenes\Azul_Arriba.png"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Label_RosadoAbajo">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="D:\UTESA\Ingenieria en Ciencias Computacionales\KDA RentCar\RentCar\imagenes\Rosa_Abajo.png"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Label_RosaArriba">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="D:\UTESA\Ingenieria en Ciencias Computacionales\KDA RentCar\RentCar\imagenes\Slpash Rosa.png"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Label_Logo">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="D:\UTESA\Ingenieria en Ciencias Computacionales\KDA RentCar\RentCar\imagenes\Logo.png"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

@@ -298,10 +298,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
             sc.close();
 
-            if (!encontrado) {
-                JOptionPane.showMessageDialog(this, "Creando nuevo usuario");
-            }
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al buscar usuario");
         }
